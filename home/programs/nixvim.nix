@@ -540,6 +540,8 @@
         };
       };
 
+      render-markdown.enable = true;
+
       notify.enable = true;
 
       fidget = {

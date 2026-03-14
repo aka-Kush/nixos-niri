@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  catppuccin.librewolf.enable = true;
   programs.librewolf = {
     enable = true;
 
@@ -36,11 +37,6 @@
           private_browsing_allowed = true;
           default_area = "toolbar";
         };
-        # "pywalfox@frewacom.org" = {
-        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/pywalfox/latest.xpi";
-        #   installation_mode = "force_installed";
-        #   private_browsing_allowed = true;
-        # };
       };
 
       SearchEngines = {

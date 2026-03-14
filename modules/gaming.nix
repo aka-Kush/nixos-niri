@@ -4,6 +4,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
+    gamescopeSession.enable = true;
 
     extraPackages = with pkgs; [
       gamemode
@@ -25,7 +26,7 @@
     # Launchers
     faugus-launcher
     umu-launcher
-    protonup-qt       # manage ProtonGE versions
+    protonup-qt # manage ProtonGE versions
 
     # Wine
     wine

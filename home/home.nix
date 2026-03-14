@@ -15,6 +15,8 @@
     ./programs/xdg.nix
     ./programs/nixvim.nix
     ./programs/librewolf.nix
+    ./programs/vesktop.nix
+    ./programs/nix-search-tv.nix
   ];
 
   home.username = "kush";
@@ -27,6 +29,4 @@
     XCURSOR_SIZE = 24;
   };
 
-  programs.home-manager.enable = true;
-  news.display = "silent";
 }

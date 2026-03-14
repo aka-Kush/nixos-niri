@@ -10,7 +10,6 @@
       vim = "nvim";
       ls  = "lsd -l";
       lsa = "lsd -al";
-      hms = "home-manager switch --flake ~/nixos/#kush -b bak";
       ns  = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
       nb  = "sudo nixos-rebuild boot --flake ~/nixos/#nixos";
     };

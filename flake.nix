@@ -36,21 +36,25 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
-      modules = [ ./configuration.nix catppuccin.nixosModules.catppuccin ];
-    };
-
-    homeConfigurations."kush" = home-manager.lib.homeManagerConfiguration {
-	    pkgs = import nixpkgs {
-		    system = "x86_64-linux";
-		    config.allowUnfree = true;
-	    };
-	    extraSpecialArgs = { inherit inputs; };
-	    modules = [
-		./home/home.nix
-		catppuccin.homeModules.catppuccin
-		inputs.noctalia.homeModules.default
-		inputs.nixvim.homeModules.nixvim
-	    ];
+      modules = [
+        ./configuration.nix
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.kush = {
+            imports = [
+              ./home/home.nix
+              catppuccin.homeModules.catppuccin
+              inputs.noctalia.homeModules.default
+              inputs.nixvim.homeModules.nixvim
+            ];
+          };
+        }
+      ];
     };
 
   };
