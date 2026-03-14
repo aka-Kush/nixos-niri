@@ -8,7 +8,7 @@
       enable = true;
       settings = {
         flavour = "mocha";
-        transparent_background = false;
+        transparent_background = true;
         integrations = {
           treesitter = true;
           telescope.enabled = true;
@@ -523,26 +523,18 @@
         };
       };
 
-      noice = {
-        enable = true;
-        settings = {
-          lsp.override = {
-            "vim.lsp.util.convert_input_to_markdown_lines" = true;
-            "vim.lsp.util.stylize_markdown" = true;
-            "cmp.entry.get_documentation" = true;
-          };
-          presets = {
-            bottom_search = true;
-            command_palette = true;
-            long_message_to_split = true;
-            inc_rename = false;
-          };
-        };
-      };
-
       render-markdown.enable = true;
 
-      notify.enable = true;
+      notify = {
+        enable = true;
+        settings = {
+          background_colour = "#000000";
+          timeout = 3000;
+          max_width = 50;
+          stages = "fade_in_slide_out";
+          render = "default";
+        };
+      };
 
       fidget = {
         enable = true;
@@ -645,6 +637,7 @@
         enable = true;
         settings = {
           fuzzy.implementation = "lua";
+          keymap.preset = "super-tab";
           signature.enabled = true;
           sources.default = [
             "lsp"
