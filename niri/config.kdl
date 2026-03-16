@@ -35,7 +35,7 @@ input {
 }
 
 layout {
-    gaps 12
+    gaps 16
 
     center-focused-column "always"
     always-center-single-column
@@ -64,7 +64,7 @@ layout {
     }
 
 	border {
-		width 3
+		width 0
 	}
 
     struts {

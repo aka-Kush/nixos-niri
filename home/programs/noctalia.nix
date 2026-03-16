@@ -52,6 +52,7 @@
         sortByMostUsed = false;
         terminalCommand = "xterm -e";
         viewMode = "grid";
+        position = "followbar";
       };
 
       # Audio
@@ -61,49 +62,26 @@
 
       # Bar
       bar = {
+        barType = "simple";
+        floating = true;
         backgroundOpacity = 0.95;
         capsuleOpacity = 0.9;
-        marginHorizontal = 8;
-        marginVertical = 8;
+        marginHorizontal = 500;
+        marginVertical = 4;
+        widgetSpacing = 4;
         useSeparateOpacity = true;
+        showCapsule = false;
         widgets = {
           left = [
             {
               id = "Launcher";
               icon = "rocket";
-              useDistroLogo = false;
+              useDistroLogo = true;
               enableColorization = true;
               colorizeSystemIcon = "tertiary";
               customIconPath = "";
               iconColor = "none";
             }
-            {
-              id = "Clock";
-              formatHorizontal = "h:mm AP";
-              formatVertical = "HH mm - dd MM";
-              clockColor = "none";
-              tooltipFormat = "HH:mm ddd, MMM dd";
-              customFont = "";
-              useCustomFont = false;
-            }
-            {
-              id = "MediaMini";
-              compactMode = false;
-              hideMode = "hidden";
-              hideWhenIdle = false;
-              maxWidth = 145;
-              panelShowAlbumArt = true;
-              scrollingMode = "hover";
-              showAlbumArt = true;
-              showArtistFirst = true;
-              showProgressRing = true;
-              showVisualizer = false;
-              textColor = "none";
-              useFixedWidth = false;
-              visualizerType = "linear";
-            }
-          ];
-          center = [
             {
               id = "Workspace";
               fontWeight = "bold";
@@ -124,6 +102,24 @@
               showLabelsOnlyWhenOccupied = true;
               unfocusedIconsOpacity = 1;
             }
+            {
+              id = "MediaMini";
+              compactMode = false;
+              hideMode = "hidden";
+              hideWhenIdle = false;
+              maxWidth = 145;
+              panelShowAlbumArt = true;
+              scrollingMode = "hover";
+              showAlbumArt = true;
+              showArtistFirst = true;
+              showProgressRing = true;
+              showVisualizer = false;
+              textColor = "none";
+              useFixedWidth = false;
+              visualizerType = "linear";
+            }
+          ];
+          center = [
           ];
           right = [
             {
@@ -218,13 +214,13 @@
               textColor = "none";
             }
             {
-              id = "ControlCenter";
-              useDistroLogo = true;
-              enableColorization = true;
-              colorizeSystemIcon = "secondary";
-              colorizeDistroLogo = false;
-              customIconPath = "";
-              icon = "power";
+              id = "Clock";
+              formatHorizontal = "h:mm AP";
+              formatVertical = "HH mm - dd MM";
+              clockColor = "none";
+              tooltipFormat = "HH:mm ddd, MMM dd";
+              customFont = "";
+              useCustomFont = false;
             }
           ];
         };
@@ -244,9 +240,18 @@
       # Calendar
       calendar = {
         cards = [
-          { enabled = true; id = "calendar-header-card"; }
-          { enabled = true; id = "calendar-month-card"; }
-          { enabled = false; id = "weather-card"; }
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = false;
+            id = "weather-card";
+          }
         ];
       };
 
@@ -259,12 +264,30 @@
       # Control Center
       controlCenter = {
         cards = [
-          { enabled = true; id = "profile-card"; }
-          { enabled = false; id = "shortcuts-card"; }
-          { enabled = true; id = "audio-card"; }
-          { enabled = true; id = "brightness-card"; }
-          { enabled = false; id = "weather-card"; }
-          { enabled = false; id = "media-sysmon-card"; }
+          {
+            enabled = true;
+            id = "profile-card";
+          }
+          {
+            enabled = false;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = true;
+            id = "audio-card";
+          }
+          {
+            enabled = true;
+            id = "brightness-card";
+          }
+          {
+            enabled = false;
+            id = "weather-card";
+          }
+          {
+            enabled = false;
+            id = "media-sysmon-card";
+          }
         ];
         shortcuts = {
           left = [ ];
@@ -309,21 +332,72 @@
       sessionMenu = {
         countdownDuration = 3000;
         powerOptions = [
-          { action = "lock"; enabled = true; keybind = "1"; command = ""; countdownEnabled = true; }
-          { action = "suspend"; enabled = true; keybind = "2"; command = ""; countdownEnabled = false; }
-          { action = "hibernate"; enabled = true; keybind = "3"; command = ""; countdownEnabled = false; }
-          { action = "reboot"; enabled = true; keybind = "4"; command = ""; countdownEnabled = true; }
-          { action = "logout"; enabled = true; keybind = "5"; command = ""; countdownEnabled = true; }
-          { action = "shutdown"; enabled = true; keybind = "6"; command = ""; countdownEnabled = true; }
-          { action = "userspaceReboot"; enabled = false; keybind = ""; command = ""; countdownEnabled = true; }
-          { action = "rebootToUefi"; enabled = true; keybind = "7"; command = ""; countdownEnabled = true; }
+          {
+            action = "lock";
+            enabled = true;
+            keybind = "1";
+            command = "";
+            countdownEnabled = true;
+          }
+          {
+            action = "suspend";
+            enabled = true;
+            keybind = "2";
+            command = "";
+            countdownEnabled = false;
+          }
+          {
+            action = "hibernate";
+            enabled = true;
+            keybind = "3";
+            command = "";
+            countdownEnabled = false;
+          }
+          {
+            action = "reboot";
+            enabled = true;
+            keybind = "4";
+            command = "";
+            countdownEnabled = true;
+          }
+          {
+            action = "logout";
+            enabled = true;
+            keybind = "5";
+            command = "";
+            countdownEnabled = true;
+          }
+          {
+            action = "shutdown";
+            enabled = true;
+            keybind = "6";
+            command = "";
+            countdownEnabled = true;
+          }
+          {
+            action = "userspaceReboot";
+            enabled = false;
+            keybind = "";
+            command = "";
+            countdownEnabled = true;
+          }
+          {
+            action = "rebootToUefi";
+            enabled = true;
+            keybind = "7";
+            command = "";
+            countdownEnabled = true;
+          }
         ];
       };
 
       # Templates (niri template active, user theming on)
       templates = {
         activeTemplates = [
-          { enabled = true; id = "niri"; }
+          {
+            enabled = true;
+            id = "niri";
+          }
         ];
         enableUserTheming = true;
       };
@@ -340,6 +414,7 @@
         directory = "/home/kush/Pictures/walls";
         transitionDuration = 1000;
         transitionType = "wipe";
+        panelPosition = "center";
         viewMode = "browse";
       };
     };

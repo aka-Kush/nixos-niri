@@ -28,5 +28,4 @@
     XCURSOR_THEME = "Yaru";
     XCURSOR_SIZE = 24;
   };
-
 }
