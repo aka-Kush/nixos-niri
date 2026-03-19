@@ -3,32 +3,6 @@
   programs.nixvim = {
     enable = true;
 
-    # ── Themeing ────────────────────────────────────────────────────────────────
-    colorschemes.catppuccin = {
-      enable = true;
-      settings = {
-        flavour = "mocha";
-        transparent_background = true;
-        integrations = {
-          treesitter = true;
-          telescope.enabled = true;
-          blink_cmp = true;
-          mini.enabled = true;
-          lsp_trouble = true;
-          gitsigns = true;
-          native_lsp = {
-            enabled = true;
-            underlines = {
-              errors = [ "underline" ];
-              hints = [ "underline" ];
-              warnings = [ "underline" ];
-              information = [ "underline" ];
-            };
-          };
-        };
-      };
-    };
-
     # ── Packages Install ────────────────────────────────────────────────────────────────
     extraPackages = with pkgs; [
       nixd
@@ -525,6 +499,8 @@
 
       render-markdown.enable = true;
 
+      bufferline.enable = true;
+
       notify = {
         enable = true;
         settings = {
@@ -836,6 +812,7 @@
     extraPlugins = [
       pkgs.vimPlugins.vim-suda
       pkgs.vimPlugins.harpoon2
+      pkgs.vimPlugins.vim-cool
     ];
 
     # ── Autocmds ──────────────────────────────────────────────────────────────

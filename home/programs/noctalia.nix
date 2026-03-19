@@ -3,26 +3,6 @@
   programs.noctalia-shell = {
     enable = true;
 
-    # --- Catppuccin Mocha color scheme ---
-    colors = {
-      mError = "#f38ba8";
-      mHover = "#94e2d5";
-      mOnError = "#11111b";
-      mOnHover = "#11111b";
-      mOnPrimary = "#11111b";
-      mOnSecondary = "#11111b";
-      mOnSurface = "#cdd6f4";
-      mOnSurfaceVariant = "#a3b4eb";
-      mOnTertiary = "#11111b";
-      mOutline = "#4c4f69";
-      mPrimary = "#cba6f7";
-      mSecondary = "#fab387";
-      mShadow = "#11111b";
-      mSurface = "#1e1e2e";
-      mSurfaceVariant = "#313244";
-      mTertiary = "#94e2d5";
-    };
-
     # --- Plugins ---
     plugins = {
       sources = [
@@ -64,11 +44,11 @@
       bar = {
         barType = "simple";
         floating = true;
-        backgroundOpacity = 0.95;
-        capsuleOpacity = 0.9;
+        # backgroundOpacity = 0.95;
+        # capsuleOpacity = 0.9;
         marginHorizontal = 500;
-        marginVertical = 4;
-        widgetSpacing = 4;
+        marginVertical = 6;
+        widgetSpacing = 2;
         useSeparateOpacity = true;
         showCapsule = false;
         widgets = {
@@ -404,8 +384,6 @@
 
       # UI
       ui = {
-        fontDefault = "Noto Sans";
-        fontFixed = "JetBrainsMono NF";
         settingsPanelSideBarCardStyle = true;
       };
 

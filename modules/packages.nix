@@ -13,6 +13,7 @@
     p7zip
     rsync
     jq
+    file-roller
 
     # Wayland / Display
     xwayland-satellite
@@ -87,6 +88,6 @@
     localsend
     zoom-us
     zed-editor
-    brave
+    helium
   ];
 }

@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/boot.nix
+    ./modules/stylix.nix
     ./modules/networking.nix
     ./modules/locale.nix
     ./modules/users.nix
@@ -17,7 +18,7 @@
     ./modules/fonts.nix
     ./modules/desktop.nix
     ./modules/security.nix
-    ./modules/thunar.nix
+    ./modules/filemanager.nix
     ./modules/packages.nix
     ./modules/scripts.nix
     ./modules/gaming.nix

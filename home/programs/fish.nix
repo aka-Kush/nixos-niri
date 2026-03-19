@@ -8,13 +8,12 @@
     '';
     shellAliases = {
       vim = "nvim";
-      ls  = "lsd -l";
+      ls = "lsd -l";
       lsa = "lsd -al";
-      ns  = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
-      nb  = "sudo nixos-rebuild boot --flake ~/nixos/#nixos";
+      ns = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
+      nb = "sudo nixos-rebuild boot --flake ~/nixos/#nixos";
     };
   };
-  catppuccin.fish.enable = true;
 
   home.packages = with pkgs; [
     zoxide

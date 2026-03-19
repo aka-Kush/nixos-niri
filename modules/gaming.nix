@@ -27,6 +27,7 @@
     faugus-launcher
     umu-launcher
     protonup-qt # manage ProtonGE versions
+    pcsx2
 
     # Wine
     wine

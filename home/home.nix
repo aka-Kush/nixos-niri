@@ -9,13 +9,11 @@
   imports = [
     ./programs/kitty.nix
     ./programs/fish.nix
-    ./programs/gtk.nix
-    ./programs/qt.nix
     ./programs/noctalia.nix
     ./programs/xdg.nix
     ./programs/nixvim.nix
+    ./programs/stylix.nix
     ./programs/librewolf.nix
-    ./programs/vesktop.nix
     ./programs/nix-search-tv.nix
   ];
 

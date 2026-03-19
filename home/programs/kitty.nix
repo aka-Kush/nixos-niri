@@ -12,7 +12,6 @@
     settings = {
       cursor_trail = 1;
       enable_audio_bell = false;
-      background_opacity = "0.98";
       window_padding_width = 10;
       confirm_os_window_close = 0;
       window_border_width = "2px";
@@ -25,6 +24,4 @@
       "ctrl+shift+." = "next_tab";
     };
   };
-
-  catppuccin.kitty.enable = true;
 }

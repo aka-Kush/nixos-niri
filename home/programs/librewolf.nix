@@ -1,34 +1,9 @@
 { pkgs, ... }:
 {
-  catppuccin.librewolf.enable = true;
   programs.librewolf = {
-    enable = true;
+    enable = false;
 
-    settings = {
-      # Fingerprinting (LibreWolf enables this by default)
-      "privacy.resistFingerprinting" = false;
-
-      # DRM content
-      "media.eme.enabled" = true;
-
-      # Dark theme
-      "layout.css.prefers-color-scheme.content-override" = 0;
-
-      # Blank homepage / new tab
-      "browser.startup.homepage" = "about:blank";
-      "browser.newtabpage.enabled" = false;
-      "browser.startup.page" = 0;
-
-      # History & cookies
-      "privacy.sanitize.sanitizeOnShutdown" = false;
-      "privacy.clearOnShutdown.cookies" = false;
-      "privacy.clearOnShutdown.history" = false;
-      "places.history.enabled" = true;
-
-      # Hide bookmarks bar
-      "browser.toolbars.bookmarks.visibility" = "never";
-    };
-
+    # policies is top-level, not per-profile
     policies = {
       ExtensionSettings = {
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
@@ -38,7 +13,6 @@
           default_area = "toolbar";
         };
       };
-
       SearchEngines = {
         Default = "Brave Search";
         Remove = [ "DuckDuckGo Lite" ];
@@ -60,5 +34,32 @@
         ];
       };
     };
+
+    profiles.kush = {
+      isDefault = true;
+      settings = {
+        "privacy.resistFingerprinting" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "media.eme.enabled" = true;
+        "layout.css.prefers-color-scheme.content-override" = 0;
+        "browser.startup.homepage" = "about:blank";
+        "browser.newtabpage.enabled" = false;
+        "browser.startup.page" = 0;
+        "privacy.sanitize.sanitizeOnShutdown" = false;
+        "privacy.clearOnShutdown.cookies" = false;
+        "privacy.clearOnShutdown.history" = false;
+        "places.history.enabled" = true;
+        "browser.toolbars.bookmarks.visibility" = "never";
+      };
+    };
+  };
+
+  stylix.targets.librewolf = {
+    enable = true;
+    profileNames = [ "kush" ];
+    colors.enable = true;
+    fonts.enable = false;
+    colorTheme.enable = false;
+    firefoxGnomeTheme.enable = false;
   };
 }

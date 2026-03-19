@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.libinput.enable = true;
@@ -10,6 +10,8 @@
   };
 
   hardware.i2c.enable = true;
+  hardware.uinput.enable = true;
+  services.udev.packages = [ pkgs.game-devices-udev-rules ];
 
   hardware.bluetooth = {
     enable = true;
