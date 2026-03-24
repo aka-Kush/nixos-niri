@@ -120,8 +120,8 @@ binds {
 
     Mod+ESCAPE { spawn-sh "missioncenter"; }
 
-    Alt+Shift+w { spawn "helium"; }
-    Alt+Shift+i { spawn-sh "helium --incognito"; }
+    Alt+Shift+w { spawn "librewolf"; }
+    Alt+Shift+i { spawn-sh "librewolf --private-window"; }
     Alt+Shift+d { spawn "vesktop"; }
     Alt+Shift+s { spawn-sh "spotify"; }
     Alt+Shift+f { spawn "thunar"; }

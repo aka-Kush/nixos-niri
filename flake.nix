@@ -1,10 +1,13 @@
 {
   description = "Dihh flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
@@ -24,25 +27,17 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-
   outputs =
     {
       self,
       nixpkgs,
       home-manager,
       stylix,
-      apple-fonts,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-
-      # Overlay that adds helium to pkgs
       heliumOverlay = final: prev: {
         helium = final.callPackage ./helium { enableWideVine = true; };
       };
@@ -54,10 +49,12 @@
         modules = [
           ./configuration.nix
           stylix.nixosModules.stylix
-
-          # Inject overlay so pkgs.helium is available everywhere
-          { nixpkgs.overlays = [ heliumOverlay ]; }
-
+          {
+            nixpkgs.overlays = [
+              heliumOverlay
+              inputs.nur.overlays.default
+            ];
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

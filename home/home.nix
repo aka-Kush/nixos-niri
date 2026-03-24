@@ -8,12 +8,13 @@
 
   imports = [
     ./programs/kitty.nix
+    ./programs/librewolf.nix
     ./programs/fish.nix
     ./programs/noctalia.nix
+    ./programs/opencode.nix
     ./programs/xdg.nix
     ./programs/nixvim.nix
     ./programs/stylix.nix
-    ./programs/librewolf.nix
     ./programs/nix-search-tv.nix
   ];
 
@@ -23,6 +24,8 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    BROWSER = "librewolf";
+    VISUAL = "nvim";
     XCURSOR_THEME = "Yaru";
     XCURSOR_SIZE = 24;
   };

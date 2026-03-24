@@ -13,4 +13,11 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  documentation = {
+    nixos.enable = false;
+    man.enable = true;
+    info.enable = true;
+    doc.enable = true;
+  };
 }

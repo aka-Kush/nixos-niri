@@ -83,6 +83,15 @@
               unfocusedIconsOpacity = 1;
             }
             {
+              id = "SystemMonitor";
+              compactMode = false;
+              showCpuTemp = false;
+              showCpuUsage = true;
+              showMemoryUsage = true;
+              useMonospaceFont = true;
+              usePadding = false;
+            }
+            {
               id = "MediaMini";
               compactMode = false;
               hideMode = "hidden";

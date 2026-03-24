@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   virtualisation = {
-    libvirtd.enable = true;
     docker = {
       enable = true;
       autoPrune = {
@@ -13,8 +12,6 @@
 
   environment.systemPackages = with pkgs; [
     docker
-    freerdp
-    winboat
   ];
 
   virtualisation.oci-containers.containers.portainer = {

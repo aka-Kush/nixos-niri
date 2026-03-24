@@ -14,6 +14,7 @@
     rsync
     jq
     file-roller
+    fastfetch
 
     # Wayland / Display
     xwayland-satellite
@@ -41,6 +42,7 @@
     tldr
     btop
     tree
+    yazi
 
     # Build tools
     gcc
@@ -59,7 +61,6 @@
     python3
     go
     luarocks
-    opencode
 
     # Media
     mpv
@@ -70,6 +71,7 @@
     libreoffice-fresh
     qbittorrent
     anytype
+    zathura
 
     # File system & mounting
     udiskie
@@ -89,5 +91,6 @@
     zoom-us
     zed-editor
     helium
+    megasync
   ];
 }

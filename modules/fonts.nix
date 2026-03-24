@@ -1,6 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  # extra fonts beyond what stylix.fonts installs
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.meslo-lg
@@ -9,13 +8,9 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     roboto
-    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-    inputs.apple-fonts.packages.${pkgs.system}.sf-mono
-    inputs.apple-fonts.packages.${pkgs.system}.ny
     ubuntu-classic
   ];
 
-  # rendering tweaks — stylix doesn't manage these
   fonts.fontconfig = {
     antialias = true;
     hinting = {
@@ -28,16 +23,7 @@
     };
   };
 
-  # stylix owns defaultFonts + package installation for these four
   stylix.fonts = {
-    # sansSerif = {
-    #   package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
-    #   name = "SF Pro Display";
-    # };
-    # serif = {
-    #   package = inputs.apple-fonts.packages.${pkgs.system}.ny;
-    #   name = "New York";
-    # };
     sansSerif = {
       package = pkgs.ubuntu-classic;
       name = "Ubuntu";

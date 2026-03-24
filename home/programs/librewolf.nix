@@ -1,18 +1,9 @@
 { pkgs, ... }:
 {
   programs.librewolf = {
-    enable = false;
+    enable = true;
 
-    # policies is top-level, not per-profile
     policies = {
-      ExtensionSettings = {
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-          installation_mode = "force_installed";
-          private_browsing_allowed = true;
-          default_area = "toolbar";
-        };
-      };
       SearchEngines = {
         Default = "Brave Search";
         Remove = [ "DuckDuckGo Lite" ];
@@ -31,35 +22,45 @@
             IconURL = "https://www.google.com/favicon.ico";
             Alias = "@g";
           }
+          {
+            Name = "Nix Packages";
+            URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
+            Alias = "@np";
+          }
         ];
       };
     };
+    profiles = {
+      kush = {
+        isDefault = true;
+        id = 0;
 
-    profiles.kush = {
-      isDefault = true;
-      settings = {
-        "privacy.resistFingerprinting" = false;
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "media.eme.enabled" = true;
-        "layout.css.prefers-color-scheme.content-override" = 0;
-        "browser.startup.homepage" = "about:blank";
-        "browser.newtabpage.enabled" = false;
-        "browser.startup.page" = 0;
-        "privacy.sanitize.sanitizeOnShutdown" = false;
-        "privacy.clearOnShutdown.cookies" = false;
-        "privacy.clearOnShutdown.history" = false;
-        "places.history.enabled" = true;
-        "browser.toolbars.bookmarks.visibility" = "never";
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          bitwarden
+        ];
+
+        settings = {
+          "privacy.resistFingerprinting" = false;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "media.eme.enabled" = true;
+          "layout.css.prefers-color-scheme.content-override" = 0;
+          "browser.startup.homepage" = "about:blank";
+          "browser.newtabpage.enabled" = false;
+          "browser.startup.page" = 3;
+          "signon.autofillForms" = true;
+          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+          "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
+          "privacy.sanitize.sanitizeOnShutdown" = false;
+          "privacy.clearOnShutdown.cookies" = false;
+          "privacy.clearOnShutdown.history" = false;
+          "places.history.enabled" = true;
+          "sidebar.revamp" = true;
+          "sidebar.verticalTabs" = true;
+          # "sidebar.visibility" = "expand-on-hover";
+          "sidebar.visibility" = "always-show";
+          "browser.toolbars.bookmarks.visibility" = "never";
+        };
       };
     };
-  };
-
-  stylix.targets.librewolf = {
-    enable = true;
-    profileNames = [ "kush" ];
-    colors.enable = true;
-    fonts.enable = false;
-    colorTheme.enable = false;
-    firefoxGnomeTheme.enable = false;
   };
 }

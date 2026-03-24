@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  programs.zoxide.enable = true;
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -8,6 +10,7 @@
     '';
     shellAliases = {
       vim = "nvim";
+      y = "yazi";
       ls = "lsd -l";
       lsa = "lsd -al";
       ns = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
@@ -16,7 +19,6 @@
   };
 
   home.packages = with pkgs; [
-    zoxide
     lsd
   ];
 }

@@ -10,6 +10,7 @@
       "audio"
       "input"
       "video"
+      "render"
       "docker"
       "kvm"
       "libvirtd"

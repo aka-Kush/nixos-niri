@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -51,7 +51,6 @@
       timeoutlen = 500;
       updatetime = 300;
       hidden = true;
-      autochdir = true;
     };
 
     # ── Keymaps ───────────────────────────────────────────────────────────────
@@ -141,6 +140,25 @@
         };
       }
 
+      # Yazi
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>-";
+        action = ":Yazi<CR>";
+      }
+
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>_";
+        action = ":Yazi toggle<CR>";
+      }
+
       # Window navigation
       {
         mode = "n";
@@ -214,9 +232,78 @@
       {
         mode = "n";
         key = "<leader>nf";
-        action.__raw = "vim.lsp.buf.format";
+        action.__raw = "function() require('conform').format({ async = true, lsp_fallback = true }) end";
         options = {
           desc = "Format file";
+        };
+      }
+      {
+        mode = "n";
+        key = "gd";
+        action.__raw = "vim.lsp.buf.definition";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Go to definition";
+        };
+      }
+      {
+        mode = "n";
+        key = "gD";
+        action.__raw = "vim.lsp.buf.declaration";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Go to declaration";
+        };
+      }
+      {
+        mode = "n";
+        key = "gr";
+        action.__raw = "vim.lsp.buf.references";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Go to references";
+        };
+      }
+      {
+        mode = "n";
+        key = "gi";
+        action.__raw = "vim.lsp.buf.implementation";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Go to implementation";
+        };
+      }
+      {
+        mode = "n";
+        key = "K";
+        action.__raw = "vim.lsp.buf.hover";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Hover docs";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>rn";
+        action.__raw = "function() return ':IncRename ' .. vim.fn.expand('<cword>') end";
+        options = {
+          expr = true;
+          desc = "Rename (live preview)";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>ca";
+        action.__raw = "vim.lsp.buf.code_action";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Code action";
         };
       }
       {
@@ -252,63 +339,39 @@
         };
       }
 
+      # aerial
+      {
+        mode = "n";
+        key = "<leader>o";
+        action = ":AerialToggle<CR>";
+        options = {
+          silent = true;
+          desc = "Symbols outline";
+        };
+      }
+
       # Telescope
       {
         mode = "n";
         key = "<leader>ff";
-        action.__raw = "function() require('telescope.builtin').find_files() end";
-        options = {
-          desc = "Find files";
-        };
+        action.__raw = "function() require('telescope.builtin').find_files({ cwd = require('project.api').get_project_root() }) end";
+        options.desc = "Find project files";
       }
+
       {
         mode = "n";
         key = "<leader>fg";
-        action.__raw = "function() require('telescope.builtin').live_grep({ hidden = true, search_dirs = { vim.loop.cwd() } }) end";
-        options = {
-          desc = "Live grep";
-        };
+        action.__raw = "function() require('telescope.builtin').live_grep({ cwd = require('project.api').get_project_root() }) end";
+        options.desc = "Live grep (project)";
       }
+
       {
         mode = "n";
         key = "<leader>fb";
         action.__raw = "function() require('telescope.builtin').buffers() end";
-        options = {
-          desc = "Buffers";
-        };
+        options.desc = "Buffers";
       }
-      {
-        mode = "n";
-        key = "<leader>fh";
-        action.__raw = "function() require('telescope.builtin').find_files({ hidden = true, cwd = '/' }) end";
-        options = {
-          desc = "Find hidden files";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fr";
-        action.__raw = "function() require('telescope.builtin').find_files({ hidden = true, cwd = '/' }) end";
-        options = {
-          desc = "Find from root";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fd";
-        action.__raw = "function() require('telescope.builtin').find_files({ hidden = true, cwd = '~/.config/' }) end";
-        options = {
-          desc = "Find dotfiles";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fv";
-        action.__raw = "function() require('telescope.builtin').find_files({ hidden = true, cwd = '~/.config/nvim' }) end";
-        options = {
-          desc = "Find nvim dots";
-        };
-      }
+
       {
         mode = "n";
         key = "<leader>fc";
@@ -319,13 +382,26 @@
           desc = "Find in current dir";
         };
       }
+
+      {
+        mode = "n";
+        key = "<leader>fr";
+        action.__raw = "function() require('telescope.builtin').find_files({ cwd = '/home/kush', hidden=true }) end";
+        options.desc = "Find from root";
+      }
+
+      {
+        mode = "n";
+        key = "<leader>fd";
+        action.__raw = "function() require('telescope.builtin').find_files({ hidden = true, cwd = vim.fn.expand('~/.config/') }) end";
+        options.desc = "Find dotfiles";
+      }
+
       {
         mode = "n";
         key = "<leader>fo";
         action.__raw = "function() require('telescope.builtin').oldfiles() end";
-        options = {
-          desc = "Recent files";
-        };
+        options.desc = "Recent files";
       }
 
       # harpoon
@@ -463,6 +539,37 @@
     plugins = {
 
       web-devicons.enable = true;
+
+      inc-rename.enable = true;
+
+      yazi.enable = true;
+
+      navic = {
+        enable = true;
+        settings.lsp.auto_attach = true;
+      };
+
+      barbecue.enable = true;
+
+      aerial = {
+        enable = true;
+        settings = {
+          layout = {
+            default_direction = "right";
+          };
+          show_guides = true;
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+        settings = {
+          open_mapping = "[[<C-\\>]]";
+          direction = "float";
+          float_opts.border = "rounded";
+          shade_terminals = false;
+        };
+      };
 
       lualine = {
         enable = true;
@@ -707,9 +814,38 @@
             };
           };
         };
-        extensions.ui-select = {
-          enable = true;
-          settings.__raw = ''require("telescope.themes").get_dropdown({})'';
+        extensions = {
+          ui-select = {
+            enable = true;
+            settings.__raw = ''require("telescope.themes").get_dropdown({})'';
+          };
+        };
+      };
+
+      project-nvim = {
+        enable = true;
+        enableTelescope = true;
+        settings = {
+          detection_methods = [ "pattern" ];
+          patterns = [
+            ".git"
+            ".github"
+            "flake.nix"
+            "Makefile"
+            "package.json"
+            "Cargo.toml"
+          ];
+          silent_chdir = true;
+          scope_chdir = "global";
+          show_hidden = true;
+          historysize = 100;
+          lsp = {
+            enabled = true;
+            use_pattern_matching = true;
+          };
+          telescope = {
+            sort = "newest";
+          };
         };
       };
 
