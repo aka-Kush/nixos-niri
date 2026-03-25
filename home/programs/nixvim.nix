@@ -309,12 +309,14 @@
       {
         mode = "n";
         key = "<leader>e";
-        action = ":Oil<CR>";
+        action = "<CMD>Oil<CR>";
         options = {
+          desc = "Oil: open float (current dir)";
           silent = true;
-          desc = "Open Oil";
         };
       }
+
+      # suda
       {
         mode = "n";
         key = "<leader>ws";
@@ -544,12 +546,21 @@
 
       yazi.enable = true;
 
-      navic = {
+      mini-surround = {
         enable = true;
-        settings.lsp.auto_attach = true;
+        modules = {
+          surround = {
+            mappings = {
+              add = "sa"; # sa<motion><char>  e.g. saiw"
+              delete = "sd"; # sd<char>          e.g. sd"
+              replace = "sr"; # sr<old><new>       e.g. sr"'
+              find = "sf"; # find surrounding to the right
+              find_left = "sF"; # find surrounding to the left
+              highlight = "sh"; # flash-highlight surrounding
+            };
+          };
+        };
       };
-
-      barbecue.enable = true;
 
       aerial = {
         enable = true;
@@ -853,61 +864,63 @@
 
       oil = {
         enable = true;
-        settings.keymaps = {
-          "g?" = {
-            "__unkeyed-1" = "actions.show_help";
-            mode = "n";
-          };
-          "<CR>" = "actions.select";
-          "<C-s>" = {
-            "__unkeyed-1" = "actions.select";
-            opts = {
-              vertical = true;
+        settings = {
+          keymaps = {
+            "g?" = {
+              "__unkeyed-1" = "actions.show_help";
+              mode = "n";
             };
-          };
-          "<C-h>" = {
-            "__unkeyed-1" = "actions.select";
-            opts = {
-              horizontal = true;
+            "<CR>" = "actions.select";
+            "<C-s>" = {
+              "__unkeyed-1" = "actions.select";
+              opts = {
+                vertical = true;
+              };
             };
-          };
-          "<C-p>" = "actions.preview";
-          "<C-c>" = {
-            "__unkeyed-1" = "actions.close";
-            mode = "n";
-          };
-          "<C-l>" = "actions.refresh";
-          "-" = {
-            "__unkeyed-1" = "actions.parent";
-            mode = "n";
-          };
-          "_" = {
-            "__unkeyed-1" = "actions.open_cwd";
-            mode = "n";
-          };
-          "`" = {
-            "__unkeyed-1" = "actions.cd";
-            mode = "n";
-          };
-          "~" = {
-            "__unkeyed-1" = "actions.cd";
-            opts = {
-              scope = "tab";
+            "<C-h>" = {
+              "__unkeyed-1" = "actions.select";
+              opts = {
+                horizontal = true;
+              };
             };
-            mode = "n";
-          };
-          "gs" = {
-            "__unkeyed-1" = "actions.change_sort";
-            mode = "n";
-          };
-          "gx" = "actions.open_external";
-          "<C-t>" = {
-            "__unkeyed-1" = "actions.toggle_hidden";
-            mode = "n";
-          };
-          "g\\" = {
-            "__unkeyed-1" = "actions.toggle_trash";
-            mode = "n";
+            "<C-p>" = "actions.preview";
+            "<C-c>" = {
+              "__unkeyed-1" = "actions.close";
+              mode = "n";
+            };
+            "<C-l>" = "actions.refresh";
+            "-" = {
+              "__unkeyed-1" = "actions.parent";
+              mode = "n";
+            };
+            "_" = {
+              "__unkeyed-1" = "actions.open_cwd";
+              mode = "n";
+            };
+            "`" = {
+              "__unkeyed-1" = "actions.cd";
+              mode = "n";
+            };
+            "~" = {
+              "__unkeyed-1" = "actions.cd";
+              opts = {
+                scope = "tab";
+              };
+              mode = "n";
+            };
+            "gs" = {
+              "__unkeyed-1" = "actions.change_sort";
+              mode = "n";
+            };
+            "gx" = "actions.open_external";
+            "<C-t>" = {
+              "__unkeyed-1" = "actions.toggle_hidden";
+              mode = "n";
+            };
+            "g\\" = {
+              "__unkeyed-1" = "actions.toggle_trash";
+              mode = "n";
+            };
           };
         };
       };

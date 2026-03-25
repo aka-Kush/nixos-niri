@@ -4,8 +4,8 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
-    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    polarity = "light";
 
     cursor = {
       package = pkgs.yaru-theme;

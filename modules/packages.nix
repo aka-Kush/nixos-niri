@@ -92,5 +92,6 @@
     zed-editor
     helium
     megasync
+    postman
   ];
 }
