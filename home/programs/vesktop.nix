@@ -1,4 +1,4 @@
 { ... }:
 {
-  catppuccin.vesktop.enable = true;
+  programs.vesktop.enable = true;
 }

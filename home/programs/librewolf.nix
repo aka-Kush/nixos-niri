@@ -1,5 +1,13 @@
 { pkgs, ... }:
 {
+  stylix.targets.librewolf = {
+    enable = true;
+    colors.enable = true;
+    profileNames = [
+      "kush"
+    ];
+  };
+
   programs.librewolf = {
     enable = true;
 
@@ -27,6 +35,22 @@
             URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
             Alias = "@np";
           }
+          {
+            Name = "Home Manager Options";
+            URLTemplate = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+            Alias = "@hm";
+          }
+          {
+            Name = "Youtube";
+            URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
+            Alias = "@yt";
+          }
+          {
+            Name = "Nixvim Docs";
+            URLTemplate = "https://nix-community.github.io/nixvim/?search={searchTerms}";
+            Alias = "@nv";
+          }
+
         ];
       };
     };
@@ -56,8 +80,7 @@
           "places.history.enabled" = true;
           "sidebar.revamp" = true;
           "sidebar.verticalTabs" = true;
-          # "sidebar.visibility" = "expand-on-hover";
-          "sidebar.visibility" = "always-show";
+          "sidebar.visibility" = "expand-on-hover";
           "browser.toolbars.bookmarks.visibility" = "never";
         };
       };

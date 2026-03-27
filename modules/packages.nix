@@ -83,8 +83,7 @@
     protonvpn-gui
 
     # Apps
-    vesktop
-    spotify
+    alacritty
     razergenie
     mission-center
     localsend

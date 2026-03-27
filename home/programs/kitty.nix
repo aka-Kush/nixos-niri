@@ -17,11 +17,18 @@
       window_border_width = "2px";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
+      allow_remote_control = "yes";
+      # shell_integration = "enabled";
+      enabled_layouts = "tall,fat,grid,splits";
+      # tab_bar_filter = "session";
     };
 
     keybindings = {
       "ctrl+shift+," = "previous_tab";
       "ctrl+shift+." = "next_tab";
+      "ctrl+shift+s" = "save_as_session ~/.config/kitty/sessions";
+      "ctrl+shift+p" = "goto_session ~/.config/kitty/sessions";
+      "ctrl+shift+d" = "close_session";
     };
   };
 }

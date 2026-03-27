@@ -35,7 +35,7 @@
       "audio/wav" = "mpv.desktop";
 
       # PDF
-      "application/pdf" = "zathura.desktop";
+      "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
 
       # File manager
       "inode/directory" = "thunar.desktop";

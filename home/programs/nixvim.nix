@@ -15,6 +15,10 @@
       isort
       pylint
       luajitPackages.luacheck
+      typescript-language-server
+      prettier
+      eslint
+      tailwindcss
     ];
 
     # ── Leader ────────────────────────────────────────────────────────────────
@@ -163,7 +167,7 @@
       {
         mode = "n";
         key = "<C-h>";
-        action = "<C-w>h";
+        action = "TmuxNavigateLeft<cr>";
         options = {
           noremap = true;
           silent = true;
@@ -172,7 +176,7 @@
       {
         mode = "n";
         key = "<C-j>";
-        action = "<C-w>j";
+        action = "TmuxNavigateDown<cr>";
         options = {
           noremap = true;
           silent = true;
@@ -181,7 +185,7 @@
       {
         mode = "n";
         key = "<C-k>";
-        action = "<C-w>k";
+        action = "TmuxNavigateUp<cr>";
         options = {
           noremap = true;
           silent = true;
@@ -190,7 +194,7 @@
       {
         mode = "n";
         key = "<C-l>";
-        action = "<C-w>l";
+        action = "TmuxNavigateRight<cr>";
         options = {
           noremap = true;
           silent = true;
@@ -388,7 +392,7 @@
       {
         mode = "n";
         key = "<leader>fr";
-        action.__raw = "function() require('telescope.builtin').find_files({ cwd = '/home/kush', hidden=true }) end";
+        action.__raw = "function() require('telescope.builtin').find_files({ cwd = '/home/kush', hidden=false}) end";
         options.desc = "Find from root";
       }
 
@@ -542,6 +546,10 @@
 
       web-devicons.enable = true;
 
+      undotree.enable = true;
+
+      tmux-navigator.enable = true;
+
       inc-rename.enable = true;
 
       yazi.enable = true;
@@ -617,7 +625,7 @@
 
       render-markdown.enable = true;
 
-      bufferline.enable = true;
+      # bufferline.enable = true;
 
       notify = {
         enable = true;
@@ -768,6 +776,8 @@
         servers = {
           nixd.enable = true;
           pyright.enable = true;
+          ts_ls.enable = true;
+          tailwindcss.enable = true;
           lua_ls = {
             enable = true;
             settings.Lua = {
@@ -788,6 +798,8 @@
           formatters_by_ft = {
             nix = [ "nixfmt" ];
             lua = [ "stylua" ];
+            javascript = [ "prettier" ];
+            typescript = [ "prettier" ];
             python = [
               "black"
               "isort"
@@ -802,6 +814,8 @@
           python = [ "pylint" ];
           lua = [ "luacheck" ];
           nix = [ "statix" ];
+          javascript = [ "eslint" ];
+          typescript = [ "eslint" ];
         };
         autoCmd.event = [ "BufWritePost" ];
       };
@@ -816,20 +830,27 @@
             "build/"
             "/home/kush/go/"
           ];
-          pickers.buffers.mappings = {
-            i = {
-              "<c-d>" = "delete_buffer";
+          pickers = {
+
+            colorscheme = {
+              enable_preview = true;
             };
-            n = {
-              "<c-d>" = "delete_buffer";
+            buffers.mappings = {
+              i = {
+                "<c-d>" = "delete_buffer";
+              };
+              n = {
+                "<c-d>" = "delete_buffer";
+              };
             };
           };
-        };
-        extensions = {
-          ui-select = {
-            enable = true;
-            settings.__raw = ''require("telescope.themes").get_dropdown({})'';
+          extensions = {
+            ui-select = {
+              enable = true;
+              settings.__raw = ''require("telescope.themes").get_dropdown({})'';
+            };
           };
+
         };
       };
 
@@ -962,6 +983,7 @@
       pkgs.vimPlugins.vim-suda
       pkgs.vimPlugins.harpoon2
       pkgs.vimPlugins.vim-cool
+      # pkgs.vimPlugins.vim-tpipeline
     ];
 
     # ── Autocmds ──────────────────────────────────────────────────────────────

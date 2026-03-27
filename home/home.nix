@@ -10,9 +10,12 @@
     ./programs/kitty.nix
     ./programs/librewolf.nix
     ./programs/fish.nix
+    ./programs/spicetify.nix
     ./programs/noctalia.nix
+    ./programs/vesktop.nix
     ./programs/opencode.nix
     ./programs/xdg.nix
+    ./programs/tmux.nix
     ./programs/nixvim.nix
     ./programs/stylix.nix
     ./programs/nix-search-tv.nix
