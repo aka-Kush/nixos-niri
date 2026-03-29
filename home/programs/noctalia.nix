@@ -68,7 +68,7 @@
               showBadge = true;
               enableScrollWheel = true;
               hideUnoccupied = false;
-              labelMode = "none";
+              labelMode = "index";
               focusedColor = "primary";
               emptyColor = "none";
               occupiedColor = "none";
@@ -302,7 +302,7 @@
         clockFormat = "hh\\nmm";
         clockStyle = "custom";
         enableShadows = false;
-        radiusRatio = 0.7;
+        radiusRatio = 0;
       };
 
       # Location

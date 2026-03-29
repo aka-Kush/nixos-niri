@@ -78,6 +78,7 @@
     gocryptfs
     ifuse
     ffmpegthumbnailer
+    sirikali
 
     # VPN
     protonvpn-gui
@@ -89,7 +90,7 @@
     localsend
     zoom-us
     zed-editor
-    helium
+    # helium
     megasync
     postman
   ];

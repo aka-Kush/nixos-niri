@@ -18,6 +18,7 @@
     ./programs/tmux.nix
     ./programs/nixvim.nix
     ./programs/stylix.nix
+    ./programs/zen.nix
     ./programs/nix-search-tv.nix
   ];
 

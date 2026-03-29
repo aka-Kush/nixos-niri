@@ -35,7 +35,7 @@ input {
 }
 
 layout {
-    gaps 16
+    gaps 8
 
     center-focused-column "always"
     always-center-single-column
@@ -91,7 +91,7 @@ animations {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -120,8 +120,8 @@ binds {
 
     Mod+ESCAPE { spawn-sh "missioncenter"; }
 
-    Alt+Shift+w { spawn "librewolf"; }
-    Alt+Shift+i { spawn-sh "librewolf --private-window"; }
+    Alt+Shift+w { spawn "zen-beta"; }
+    Alt+Shift+i { spawn-sh "zen-beta --private-window"; }
     Alt+Shift+d { spawn "vesktop"; }
     Alt+Shift+s { spawn-sh "spotify"; }
     Alt+Shift+f { spawn "thunar"; }
