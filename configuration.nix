@@ -14,6 +14,7 @@
     ./modules/nix-options.nix
     ./modules/nvidia.nix
     ./modules/audio.nix
+    ./modules/mongodb.nix
     ./modules/hardware.nix
     ./modules/power.nix
     ./modules/fonts.nix
