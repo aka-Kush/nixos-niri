@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -1016,7 +1016,25 @@
         virtual_text     = { current_line = true },
         underline        = true,
         update_in_insert = false,
-      })
+      });
+
+      function ToggleCheckbox()
+        local line = vim.api.nvim_get_current_line()
+        local indent = string.match(line, "^%s*") or ""
+        local content = string.gsub(line, "^%s*", "")
+
+        if string.match(content, "^%- %[ %]") then
+          content = string.gsub(content, "%[ %]", "[x]", 1)
+        elseif string.match(content, "^%- %[x%]") then
+          content = string.gsub(content, "%[x%]", "[ ]", 1)
+        else
+          content = "- [ ] " .. content
+        end
+
+        vim.api.nvim_set_current_line(indent .. content)
+      end
+
+      vim.keymap.set("n", ";;x", ToggleCheckbox, { noremap = true, silent = true })
     '';
   };
 }

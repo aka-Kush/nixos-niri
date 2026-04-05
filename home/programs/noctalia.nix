@@ -43,11 +43,12 @@
       # Bar
       bar = {
         barType = "simple";
-        floating = true;
-        # backgroundOpacity = 0.95;
-        # capsuleOpacity = 0.9;
-        marginHorizontal = 500;
-        marginVertical = 6;
+        floating = false;
+        # backgroundOpacity = 0.0;
+        # capsuleOpacity = 1.0;
+        position = "top";
+        marginHorizontal = 0;
+        marginVertical = 0;
         widgetSpacing = 2;
         useSeparateOpacity = true;
         showCapsule = false;

@@ -35,7 +35,7 @@ input {
 }
 
 layout {
-    gaps 8
+    gaps 16
 
     center-focused-column "always"
     always-center-single-column
@@ -91,12 +91,19 @@ animations {
 }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
 window-rule {
     match app-id="kitty" title="floating-term"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    match app-id="kitty" title="floating-todo"
     open-floating true
     default-column-width { fixed 900; }
     default-window-height { fixed 600; }
@@ -132,6 +139,7 @@ binds {
     Alt+2 { spawn-sh "monitor-both"; }
     Alt+3 { spawn-sh "monitor-laptop"; }
 
+    Alt+ctrl+t { spawn-sh "kitty --title floating-todo nvim /home/kush/Desktop/todo.md "; }
     Alt+Ctrl+b { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
     Alt+Ctrl+x { spawn-sh "noctalia-shell ipc call  sessionMenu toggle"; }
     Alt+Ctrl+e { spawn-sh "noctalia-shell ipc call launcher emoji"; }

@@ -11,6 +11,7 @@
     shellAliases = {
       vim = "nvim";
       y = "yazi";
+      t = "tmux";
       ls = "lsd -l";
       lsa = "lsd -al";
       ns = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";

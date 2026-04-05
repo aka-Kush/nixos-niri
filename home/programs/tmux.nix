@@ -13,7 +13,7 @@
     ];
 
     # ── Prefix ──────────────────────────────────────────────────────────────
-    prefix = "C-s";
+    prefix = "C-a";
     disableConfirmationPrompt = true;
     escapeTime = 0;
     mouse = true;
@@ -45,7 +45,7 @@
       # ── Splits ───────────────────────────────────────────────────────────────
       unbind '"'
       unbind %
-      bind | split-window -h -c "#{pane_current_path}"
+      bind \ split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
 
       # ── Pane navigation (vim-tmux-navigator, no plugin needed) ───────────────

@@ -57,7 +57,6 @@
 
     # Languages & runtimes
     nodejs
-    nodePackages.npm
     python3
     go
     luarocks
@@ -81,7 +80,7 @@
     sirikali
 
     # VPN
-    protonvpn-gui
+    proton-vpn
 
     # Apps
     alacritty
@@ -93,5 +92,6 @@
     # helium
     megasync
     postman
+    chromium
   ];
 }
