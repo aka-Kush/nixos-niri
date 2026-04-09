@@ -16,6 +16,7 @@
       lsa = "lsd -al";
       ns = "sudo nixos-rebuild switch --flake ~/nixos/#nixos";
       nb = "sudo nixos-rebuild boot --flake ~/nixos/#nixos";
+      fu = "cd ~/nixos; sudo nix flake update";
     };
     functions = {
       ff = {

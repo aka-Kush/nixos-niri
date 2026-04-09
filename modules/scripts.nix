@@ -44,7 +44,7 @@
             off
         }
         EOF
-              notify-send -i display "Monitor Switch" "🖥️ External only (HDMI-A-1)"
+              notify-send "Monitor Switch" "🖥️ External only (HDMI-A-1)"
       '';
     })
 
@@ -70,7 +70,7 @@
             position x=1920 y=0
         }
         EOF
-              notify-send -i display "Monitor Switch" "🖥️💻 Both monitors active"
+              notify-send "Monitor Switch" "🖥️💻 Both monitors active"
       '';
     })
 
@@ -93,7 +93,7 @@
             position x=0 y=0
         }
         EOF
-              notify-send -i display "Monitor Switch" "💻 Laptop only (eDP-1)"
+              notify-send "Monitor Switch" "💻 Laptop only (eDP-1)"
       '';
     })
 

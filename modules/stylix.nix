@@ -1,10 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark";
 
     cursor = {
