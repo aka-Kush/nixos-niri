@@ -28,6 +28,7 @@
     umu-launcher
     protonup-qt # manage ProtonGE versions
     pcsx2
+    heroic
 
     # Wine
     wine

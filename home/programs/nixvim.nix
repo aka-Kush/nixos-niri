@@ -870,7 +870,7 @@
           silent_chdir = true;
           scope_chdir = "global";
           show_hidden = true;
-          historysize = 100;
+          history.size = 100;
           lsp = {
             enabled = true;
             use_pattern_matching = true;

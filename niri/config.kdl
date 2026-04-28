@@ -96,6 +96,11 @@ window-rule {
 }
 
 window-rule {
+    match is-active=true
+    blur true
+}
+
+window-rule {
     match app-id="kitty" title="floating-term"
     open-floating true
     default-column-width { fixed 900; }

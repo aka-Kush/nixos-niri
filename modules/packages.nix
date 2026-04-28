@@ -60,11 +60,14 @@
     python3
     go
     luarocks
+    gccNGPackages_15.libstdcxx
 
     # Media
     mpv
     viewnior
     pavucontrol
+    waypaper
+    awww
 
     # Office & Files
     libreoffice-fresh
@@ -93,5 +96,6 @@
     megasync
     postman
     chromium
+    ente-auth
   ];
 }

@@ -10,7 +10,6 @@
     ./modules/networking.nix
     ./modules/locale.nix
     ./modules/users.nix
-    ./modules/ollama.nix
     ./modules/nix-options.nix
     ./modules/nvidia.nix
     ./modules/audio.nix
